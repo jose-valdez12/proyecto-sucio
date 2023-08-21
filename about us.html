@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a39aeb331d.js" crossorigin="anonymous"></script>
+    <title>Swimmy Fish Game</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="#">Swimmy fish</a></div>
+            <ul class="links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="juego.html">Juego</a></li>
+                <li><a href="about us.html">Sobre nosostros</a></li>
+            </ul>
+            <div class="nav_bton">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+
+        <div class="dropdown_menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="juego.html">Juego</a></li>
+            <li><a href="about us.html">Sobre nosostros</a></li>
+        </div>
+    </header>
+    <script>
+        const navBton=document.querySelector('.nav_bton')
+        const navBtonIcon=document.querySelector('.nav_bton i')
+        const dropDown_menu=document.querySelector('.dropdown_menu')
+     
+        navBton.onclick=function(){
+            dropDown_menu.classList.toggle('open')
+            const isOpen=dropDown_menu.classList.contains('open')
+
+            navBtonIcon.classList=isOpen
+            ? 'fa-solid fa-xmark'
+            : 'fa-solid fa-bars'
+        }
+    </script>
+</body>
+</html>

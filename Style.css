@@ -1,0 +1,119 @@
+    /*Utilidad para la principal*/
+    @font-face {
+        font-family: fuenteSwimFish ;
+        src: url(FontDeterminationMonoWebRegular.ttf);
+    }
+    @font-face {
+        font-family: fuenteContenido ;
+        src: url(Minecraft.ttf);
+    }
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: fuenteSwimFish;
+    }
+
+    body{
+        background-color: #000;
+        background-image:url(background.jpg);
+        min-height: 100vh;
+        background-size: cover;
+        background-position: center;
+    }
+
+   li{
+    list-style: none;
+   }
+    a{
+    
+        color: #fff;
+        text-align: justify;
+        text-decoration: overline;
+        font-family: fuenteSwimFish;
+        font-size: 2rem;
+        text-decoration-style: wavy;
+        margin-left: 0;
+        padding-left: 0%;
+    }
+    a:hover{
+        color:blueviolet;
+    }
+   
+    /*Encabezado*/
+    header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 100px;
+        background:green;
+    }
+    .navbar {
+        width: 100%;
+        height: 50px;
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+       
+    }
+    .navbar .logo a{
+       font-size: 4rem;
+       font-weight: bold;
+       margin-left: 40px;
+    }
+    .navbar .links{
+        display: flex;
+        gap: 2rem;
+    }
+    .navbar .nav_bton{
+        color: #ffffff;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: none;
+    }
+    /*menu dropdown*/
+    .dropdown_menu{
+        display: none;
+        position: absolute;
+        right: 2rem;
+        top: 60px;
+        height: 0;
+        width: 100px;
+        background: rgba(200, 200,200, 0.1);
+        backdrop-filter: blur(15px);
+        border-radius: 5px;
+        overflow: hidden;
+        transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .dropdown_menu.open{ 
+        height: 200px;
+    }
+    .dropdown_menu li{
+        padding: 0.7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+ 
+    /*responsive diseño*/
+    @media(max-width:959px){
+        .navbar .links {
+            display: none;
+        }
+        .navbar .nav_bton {
+            display: block;
+        }
+        .dropdown_menu {
+            display: block;
+        }
+        @media (max-width:524px) {
+            .dropdown_menu{
+                left: 2rem;
+                width: unset;
+            }
+        }
+    }
+   

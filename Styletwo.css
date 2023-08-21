@@ -1,0 +1,36 @@
+   /*pagina de detalle */
+.li{
+ 
+  background-color:burlywood;
+ height: min-content;
+ margin: auto;
+
+}
+li{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    box-sizing: border-box;
+}
+body{
+    background-image:url(background.jpg);
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    padding: 20px 100px;
+}
+a{color: #fff;
+text-align: justify;
+text-decoration: overline;
+font-family: fuenteSwimFish;
+font-size: 2rem;
+text-decoration-style: wavy;
+margin-left: 0;
+padding-left: 0%;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+padding: 20px 100px;
+background:green;}
