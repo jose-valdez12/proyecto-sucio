@@ -1,25 +1,14 @@
    /*pagina de detalle */
-.li{
- 
-  background-color:burlywood;
- height: min-content;
- margin: auto;
-
-}
-li{
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    box-sizing: border-box;
-}
 body{
-    background-image:url(background.jpg);
-    min-height: 100vh;
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    padding: 20px 100px;
+background-image: url(background.jpg);
+min-height: 100vh;
+background-size: cover;
+background-position: center;
 }
+
+
+
+
 a{color: #fff;
 text-align: justify;
 text-decoration: overline;
