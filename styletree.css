@@ -1,6 +1,6 @@
 body {
     text-align: center;
-    background: url('https://res.cloudinary.com/jutzee/image/upload/v1534883464/arcade-game/background%20-%20arctic.png') center / cover no-repeat fixed; 
+    background: url(background.jpg) center / cover no-repeat fixed; 
     font-family: 'Mina', cursive;
 }
 
@@ -17,11 +17,13 @@ body {
 .life {
     display: flex;
     align-items: center;
+   
 }
 
 .heart {
-    height: 60px;
-    margin: auto 10px;
+    height: 30px;
+    margin: auto 5px;
+   
 }
 
 .timer {
@@ -99,7 +101,7 @@ canvas {
     align-items: center;
     cursor: pointer;
     border-radius: 8px;
-    background-color: #379cc3;
+    background-color: rojo;
     font-size: 1.3em;
     color: white;
     box-shadow: 5px 2px 20px rgba(46, 61, 73, 0.5);
