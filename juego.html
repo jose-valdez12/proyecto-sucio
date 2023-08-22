@@ -1,182 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>wild hunt</title>
-    <script src="https://kit.fontawesome.com/a39aeb331d.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
-    <script src="LibreriaRectangulo&Circulo.js"></script>
-  
-    
+    <title>Arcade Game</title>
+    <link rel="stylesheet prefetch" href="styletree.css">
+    <script src="com.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Mina" rel="stylesheet">
 </head>
 <body>
-    <!-- Css (Estilos) -->
-  <style>
-    body {
-      background: black;
-      background-image:url(background.png);
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-  </style>
-
-<!--javascript-->
-<script>
-    const ancho_pantalla=1080
-    const alto_pantalla=520
-    const velocidad_suelo = 5
-    let canvas
-    let piso
-    let pez
-    let obstaculos = []
-    let caer = false
-    let puntos = 0
-    let font
-    let contaFotogramas=0
-
-    function preload(){
-        font=loadFont("FontDeterminationMonoWebRegular.ttf")
-    }
-
-    function setup(){
-        canvas=createCanvas(ancho_pantalla,alto_pantalla)
-        textFont(font)
-        textSize(40)
-        textAlign(CENTER,CENTER)
-        windowResized()
-        piso = new Piso()
-        pez =new Pez()
-        obstaculos.push(new Obstaculo())
-    }
-
-    function draw(){
-        background("skyblue")
-        for(const obstaculo of obstaculos){
-            obstaculo.dibujar()
-        }
-        piso.dibujar()
-        pez.dibujar()
-        if(contaFotogramas*velocidad_suelo%400==0){
-            obstaculos.push(new Obstaculo())
-        }
-        if(caer){
-            contaFotogramas++
-        }
-        if (obstaculos[puntos] && obstaculos[puntos].x- pez.pos.x<0){
-            puntos++
-        }
-        strokeWeight(3)
-        stroke("black")
-        fill("white")
-        text(puntos, width/2,40)
-    }
-    function windowResized(){
-        if(windowWidth<ancho_pantalla){
-            canvas.style("transform",`scale(${windowWith/width})`)
-        }
-    }
-    function keyPressed(){
-        clic()
-    }
-
-    function mousePressed(){
-        clic()
-    }
-
-    function clic(){
-        if(caer){
-            pez.aceleracion.set(createVector(0,-5))
-        }else{
-            pez.resetearVariables()
-            caer=true
-            contaFotogramas=0
-            puntos=0
-            obstaculos=[]
-        }
-        
-    }
-    function perder(){
-        caer=false
-    }
-
-    function Obstaculo(){
-        const distancia_entre_obstaculos=150
-        this.w=100
-        this.h=600
-        this.x=width
-        let aleatorio=300*Math.random()-130
-        this.y=(height / 2)+aleatorio
-        this.y2=this.y - this.h -distancia_entre_obstaculos
-        this.dibujar=function(){
-            fill("green")
-            rect(this.x,this.y,this.w,this.h)
-            rect(this.x,this.y2,this.w,this.h)
-            if(caer){
-                this.x-=velocidad_suelo
-            }
-        }
-        this.areaColision=function(){
-            return [
-                new Rectangle(this.x,this.y,this.w,this.h),
-                new Rectangle(this.x,this.y2,this.w,this.h),
-            ]
-        }
-
-    }
-     
-
-    function Pez(){
-        this.r = 60
-        this.resetearVariables=function (){
-            this.pos= createVector(width/2, height/2)
-            this.aceleracion=createVector(0,0)
-        }
-        this.resetearVariables()
-        this.dibujar= function(){
-            fill("green")
-            circle(this.pos.x,this.pos.y,this.r)
-            if(caer){
-                this.aceleracion.add(createVector(0,0.2))
-                this.pos.add(this.aceleracion)
-            }
-            if (this.areaColision().collideRect(piso.areaColision())){
-               perder()
-            }
-            for (const obstaculo of obstaculos){
-                let colisiones=obstaculo.areaColision()
-                for (const c of colisiones){
-                    if(this.areaColision().collideRect(c)){
-                        perder()
-                    }
-                }
-            }
-          
-        }
-        this.areaColision=function(){
-            return new Circle(this.pos.x,this.pos.y,this.r)
-        }
-    }
-
-    function Piso(){
-        this.w=ancho_pantalla
-        this.h=90
-        this.x=0
-        this.y=alto_pantalla - this.h
-        this.dibujar=function(){
-            fill("grey")
-            rect(this.x, this.y, this.w,this.h)
-        }
-        this.areaColision=function(){
-            return new Rectangle(this.x,this.y,this.w,this.h)
-        }
-    }
-
-
-</script>
-
+    <section class="panel">
+        <div class="life">
+            <img class="heart" src="https://res.cloudinary.com/jutzee/image/upload/v1534883518/arcade-game/Heart.png" alt="heart shape">
+            <img class="heart" src="https://res.cloudinary.com/jutzee/image/upload/v1534883518/arcade-game/Heart.png" alt="heart shape">
+            <img class="heart" src="https://res.cloudinary.com/jutzee/image/upload/v1534883518/arcade-game/Heart.png" alt="heart shape">
+        </div>
+        <div class="timer">
+            <span class="minCount">00</span>
+            <span class="dots">:</span>
+            <span class="secCount">00</span>
+        </div>
+        <div class="restart">
+        	<i class="fa fa-repeat"></i>
+        </div>
+        <div class="pause">
+            <i class="fa fa-pause"></i>
+        </div>
+        <div class="volume">
+            <i class="volume-icon fa fa-volume-up"></i>
+        </div>
+    </section>
 </body>
 </html>

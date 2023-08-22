@@ -1,0 +1,161 @@
+body {
+    text-align: center;
+    background: url('https://res.cloudinary.com/jutzee/image/upload/v1534883464/arcade-game/background%20-%20arctic.png') center / cover no-repeat fixed; 
+    font-family: 'Mina', cursive;
+}
+
+.panel {
+    width: 500px;
+    height: 10vh;
+    margin: 10px auto;
+    box-sizing: border-box;
+    display: grid;
+    grid-template: 100% / 35% 35% 10% 10% 10%;
+    font-size: 1.5em;
+}
+
+.life {
+    display: flex;
+    align-items: center;
+}
+
+.heart {
+    height: 60px;
+    margin: auto 10px;
+}
+
+.timer {
+    display: grid;
+    grid-template: 100% / 20% 20% 20% 20% 20% ;
+}
+
+.minCount,
+.dots,
+.secCount {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.minCount {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.dots {
+    grid-area: 1 / 3 / 2 / 4;
+}
+
+.secCount {
+    grid-area: 1 / 4 / 2 / 5;
+}
+
+.restart,
+.pause,
+.volume {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+canvas {
+    height: 80vh;
+}
+
+/*
+ * Styles for winner screen
+ */
+
+ .start,
+ .lost,
+ .winner {
+    position: absolute;
+    top: 15%;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #270555;
+    animation: fadeIn 0.8s;
+}
+
+.start {
+    top: 0;
+    height: 100%;
+}
+
+.startGameButton,
+.newGameButton {
+    width: 150px;
+    height: 50px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #379cc3;
+    font-size: 1.3em;
+    color: white;
+    box-shadow: 5px 2px 20px rgba(46, 61, 73, 0.5);
+    transition: all 0.3s ease 0s;
+}
+
+.startGameButton:hover,
+.newGameButton:hover {
+    background-color: #003363;
+    box-shadow: none;
+}
+
+/*
+ * Fade in animation for winner screen
+ */
+ @keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+
+/*
+ * Styles for pause screen
+ */
+
+ .pause-screen {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #270555;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.pause-img {
+    width: 180px;
+    margin: 30px;
+}
+
+.fish {
+    display: inline;
+    position: relative;
+    top: 15px;
+}
+
+.instruction-first-line {
+    display: inline;
+    text-align: center;
+}
+
+.instruction-text {
+    text-align: center;
+}
